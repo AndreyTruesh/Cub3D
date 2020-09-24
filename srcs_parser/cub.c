@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 17:18:00 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/22 17:21:51 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/24 21:30:09 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int		validate_mapname(char *f_path)
 	if (*f_path == '.')
 		return (0);
 	dot = ft_strchr(f_path, '.');
+	if (dot == NULL)
+		return (0);
 	if (ft_strncmp(dot, ".cub", 4) != 0)
 		return (0);
 	return (1);
