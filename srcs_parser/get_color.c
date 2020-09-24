@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 17:22:06 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/22 17:27:28 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/24 22:35:42 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	skip_spaces_comma(char **line)
 			comma = 1;
 		(*line)++;
 	}
-	if (comma == 0)
+	if (comma == 0 && !ft_isdigit(*(*line - 1)))
 		(*line)--;
 }
 
