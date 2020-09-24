@@ -1,9 +1,9 @@
 R      	1600 900
-NO      yellow_stone.xpm
-SO      wall1.xpm
-WE      wood.xpm
-EA         wall2.xpm
-S ./jojohires.xpm
+NO      ./textures/yellow_stone.xpm
+SO      ./textures/wall1.xpm
+WE      ./textures/wood.xpm
+EA         ./textures/wall2.xpm
+S ./textures/jojohires.xpm
 
 
     C 194, 131, 140
