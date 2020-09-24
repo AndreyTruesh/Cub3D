@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:27:18 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/22 05:27:20 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/24 19:35:02 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	print_error(const char *s)
 {
-	write(2, s, ft_strlen(s));
+	if ((write(2, s, ft_strlen(s))) < 0)
+		return ;
 }
 
 void	make_screenshot_write_error(t_game *el, unsigned char *bmp)
