@@ -6,7 +6,7 @@
 #    By: abibi <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/22 00:31:18 by abibi             #+#    #+#              #
-#    Updated: 2020/09/24 22:01:19 by abibi            ###   ########.fr        #
+#    Updated: 2020/09/24 22:53:45 by abibi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,10 @@ clean:
 	make -C libft/ clean
 	make -C minilibx-linux/ clean
 
-fclean: clean
-	/bin/rm -rf $(NAME)
+fclean:
+	/bin/rm -rf $(OBJS_DIR)
+	/bin/rm -r $(NAME)
+	make -C libft/ fclean
+	make -C minilibx-linux/ clean
 
 re: fclean all
