@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 17:22:06 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/24 22:35:42 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/24 23:19:37 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int			get_color(t_game *el, char *line, int id)
 	line++;
 	if (id == 7)
 	{
-		if (el->f_color_flag == 1)
+		if (el->f_color_flag == 1 || !ft_isspace(*line))
 			return (-2);
 		el->f_color = get_col(line);
 		if (el->f_color == -1)
@@ -101,7 +101,7 @@ int			get_color(t_game *el, char *line, int id)
 	}
 	if (id == 8)
 	{
-		if (el->c_color_flag == 1)
+		if (el->c_color_flag == 1 || !ft_isspace(*line))
 			return (-2);
 		el->c_color = get_col(line);
 		if (el->c_color == -1)
