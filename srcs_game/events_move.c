@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:15:01 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/23 06:31:08 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/24 07:35:05 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 static void	pos_correction(t_game *el, float oldpos_x, float oldpos_y)
 {
-	if (el->pos.pos_x - floor(el->pos.pos_x) == 0 &&
+	if (el->pos.pos_x - floor(el->pos.pos_x) < 0.05 &&
 		el->map.map[(int)el->pos.pos_y][(int)el->pos.pos_x - 1] == '1')
 	{
 		el->pos.pos_x = oldpos_x;
 		el->pos.pos_y = oldpos_y;
 	}
-	if (el->pos.pos_y - floor(el->pos.pos_y) == 0 &&
+	if (el->pos.pos_y - floor(el->pos.pos_y) < 0.05 &&
 		el->map.map[(int)el->pos.pos_y - 1][(int)el->pos.pos_x] == '1')
 	{
 		el->pos.pos_x = oldpos_x;
 		el->pos.pos_y = oldpos_y;
 	}
-	if (el->pos.pos_y - floor(el->pos.pos_y) == 0 &&
-	el->pos.pos_x - floor(el->pos.pos_x) == 0 &&
+	if (el->pos.pos_y - floor(el->pos.pos_y) < 0.05 &&
+	el->pos.pos_x - floor(el->pos.pos_x) < 0.05 &&
 	el->map.map[(int)el->pos.pos_y - 1][(int)el->pos.pos_x - 1] == '1')
 	{
 		el->pos.pos_y = oldpos_y;
