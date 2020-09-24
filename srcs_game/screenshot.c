@@ -12,29 +12,31 @@
 
 #include "cub.h"
 
-static void	make_screenshot(t_game el)
+static void	make_screenshot(t_game *el)
 {
 	unsigned char	*bmp;
 	int				fd;
 	int				size;
 
-	size = el.w * el.h / 8 * el.bpp + 54;
-	bmp = (unsigned char *)malloc(sizeof(char) * size);
+	size = el->w * el->h / 8 * el->bpp + 54;
+	if (!(bmp = (unsigned char *)malloc(sizeof(char) * size)))
+		make_screenshot_malloc_error(el);
 	ft_bzero(bmp, size);
 	ft_memcpy(&bmp[0], "BM", 2);
 	fd = 54;
 	ft_memcpy(&bmp[10], &fd, 4);
 	fd = 40;
 	ft_memcpy(&bmp[14], &fd, 4);
-	ft_memcpy(&bmp[18], &el.w, 4);
-	fd = -el.h;
+	ft_memcpy(&bmp[18], &el->w, 4);
+	fd = -el->h;
 	ft_memcpy(&bmp[22], &fd, 4);
 	fd = 1;
 	ft_memcpy(&bmp[26], &fd, 2);
-	ft_memcpy(&bmp[28], &el.bpp, 2);
-	ft_memcpy(&bmp[54], el.img_data, size - 54);
+	ft_memcpy(&bmp[28], &el->bpp, 2);
+	ft_memcpy(&bmp[54], el->img_data, size - 54);
 	fd = open("screenshot.bmp", O_CREAT | O_WRONLY | O_TRUNC, 0644);
-	fd = write(fd, bmp, size);
+	if ((fd = write(fd, bmp, size)) < 0)
+		make_screenshot_write_error(el, bmp);
 	free(bmp);
 	close(fd);
 }
@@ -79,7 +81,7 @@ void		init_game_screenshot(char *f_path, t_game *el)
 	if (get_sprites(el) < 1)
 		get_sprites_error(el);
 	render_image_ss(el);
-	make_screenshot(*el);
+	make_screenshot(el);
 	mlx_destroy_image(el->mlx_ptr, el->img_ptr);
 	exit_after_ss(el);
 }

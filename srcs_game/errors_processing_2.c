@@ -17,6 +17,27 @@ void	print_error(const char *s)
 	write(2, s, ft_strlen(s));
 }
 
+void	make_screenshot_write_error(t_game *el, unsigned char *bmp)
+{
+	map_free(el);
+	free_textures(el);
+	sprites_free(el);
+	free(el->mlx_ptr);
+	free(bmp);
+	print_error("Error\ncan not write screenshot");
+	exit(1);
+}
+
+void	make_screenshot_malloc_error(t_game *el)
+{
+	map_free(el);
+	free_textures(el);
+	sprites_free(el);
+	free(el->mlx_ptr);
+	print_error("Error\nmemory allocation failed");
+	exit(1);
+}
+
 void	mlx_new_image_error(t_game *el)
 {
 	print_error("Error\ncreating image failed");
