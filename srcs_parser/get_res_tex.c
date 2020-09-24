@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 17:27:43 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/22 17:33:53 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/24 23:15:30 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int			get_res(t_game *el, char *line)
 {
 	line++;
-	if (el->w > 0 || el->h > 0)
+	if (el->w > 0 || el->h > 0 || !ft_isspace(*line))
 		return (-3);
 	while (ft_isspace(*line))
 		line++;
@@ -84,6 +84,8 @@ int			get_tex(t_game *el, char *line, int id)
 	int		error;
 
 	if (check_for_second_call(el, id) != 1)
+		return (-4);
+	if (!ft_isspace(*(line + 2)))
 		return (-4);
 	if ((error = get_path(line, &buf)) > 0)
 	{
