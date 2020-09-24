@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:27:18 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/24 19:35:02 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/24 21:37:06 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	make_screenshot_write_error(t_game *el, unsigned char *bmp)
 	sprites_free(el);
 	free(el->mlx_ptr);
 	free(bmp);
-	print_error("Error\ncan not write screenshot");
+	print_error("Error\ncan not write screenshot\n");
 	exit(1);
 }
 
@@ -35,13 +35,13 @@ void	make_screenshot_malloc_error(t_game *el)
 	free_textures(el);
 	sprites_free(el);
 	free(el->mlx_ptr);
-	print_error("Error\nmemory allocation failed");
+	print_error("Error\nmemory allocation failed\n");
 	exit(1);
 }
 
 void	mlx_new_image_error(t_game *el)
 {
-	print_error("Error\ncreating image failed");
+	print_error("Error\ncreating image failed\n");
 	map_free(el);
 	free_textures(el);
 	sprites_free(el);
@@ -52,7 +52,7 @@ void	mlx_new_image_error(t_game *el)
 
 void	mlx_get_data_addr_error(t_game *el)
 {
-	print_error("Error\ncreating image data array failed");
+	print_error("Error\ncreating image data array failed\n");
 	map_free(el);
 	free_textures(el);
 	sprites_free(el);
