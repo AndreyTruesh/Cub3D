@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:15:01 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/24 07:35:05 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/25 03:30:04 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ static void	pos_rotate(int key, t_game *el)
 	double oldplane_x;
 	double rsp;
 
-	rsp = M_PI / 4;
+	rsp = 0.3;
 	olddir_x = el->pos.dir_x;
 	oldplane_x = el->pos.plane_x;
 	if (key == KEY_R_ARR)
