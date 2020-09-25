@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:33:13 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/25 16:20:13 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/25 21:43:01 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void			draw_sprite_col(t_sprite_di di, int x, int tex_x,
 
 	step = 1.0 * el.s_tex.height / di.spriteheight;
 	texpos = (di.drawstart_y - el.h / 2 + di.spriteheight / 2) * step;
-	while (di.drawstart_y < di.drawend_y)
+	while (di.drawstart_y <= di.drawend_y)
 	{
 		tex_y = (int)texpos < el.s_tex.height ? (int)texpos : (int)texpos - 1;
 		texpos += step;
@@ -73,7 +73,7 @@ static void			draw_sprite(t_sprite_di di, t_game el)
 	{
 		tex_x = (int)(256 * (x - (-di.spritewidth / 2 + di.spritescreen_x))
 				* el.s_tex.width / di.spritewidth) / 256;
-		if (di.transform_y > 0 && x > 0 && x < el.w && di.transform_y <
+		if (di.transform_y > 0 && x >= 0 && x < el.w && di.transform_y <
 				el.pwd_arr[x])
 			draw_sprite_col(di, x, tex_x, el);
 		x++;
