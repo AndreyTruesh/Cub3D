@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 17:27:43 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/25 03:23:37 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/26 00:33:34 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,17 @@ int			get_res(t_game *el, char *line)
 	return (1);
 }
 
-static int	check_last_symbols_2(char *line)
+static int	check_last_symbols_2(char *line, char **path)
 {
 	while (ft_isspace(*line))
 		line++;
 	if (*line == '\0')
 		return (1);
 	else
+	{
+		free(*path);
 		return (-4);
+	}
 }
 
 static int	get_path(char *line, char **path)
@@ -70,7 +73,7 @@ static int	get_path(char *line, char **path)
 		rem++;
 	}
 	(*path)[i] = '\0';
-	return (check_last_symbols_2(line));
+	return (check_last_symbols_2(line, path));
 }
 
 static int	check_for_second_call(t_game *el, int id)
