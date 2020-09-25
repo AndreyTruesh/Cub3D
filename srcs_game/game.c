@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:29:43 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/25 16:20:41 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/25 16:22:55 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	render_image(t_game *el)
 	if (el->sprite_count > 0)
 	{
 		sort_sprites(el);
-		draw_sprites_new(*el);
+		draw_sprites(*el);
 	}
 	mlx_put_image_to_window(el->mlx_ptr, el->win_ptr, el->img_ptr, 0, 0);
 	mlx_destroy_image(el->mlx_ptr, el->img_ptr);
