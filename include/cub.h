@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 21:16:04 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/25 16:21:16 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/25 16:31:07 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # define KEY_R_ARR 65363
 # define KEY_L_ARR 65361
 # define KEY_ESC 65307
-# include <unistd.h>
-# include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
 # include "get_next_line.h"
