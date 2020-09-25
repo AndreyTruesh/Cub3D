@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:33:13 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/25 21:43:01 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/25 22:31:45 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,9 @@ static void			draw_sprite(t_sprite_di di, t_game el)
 	x = di.drawstart_x;
 	while (x < di.drawend_x)
 	{
-		tex_x = (int)(256 * (x - (-di.spritewidth / 2 + di.spritescreen_x))
-				* el.s_tex.width / di.spritewidth) / 256;
+		tex_x = (int)(((double)x - ((double)-di.spritewidth / 2.0 +
+			(double)di.spritescreen_x)) * (double)el.s_tex.width /
+				(double)di.spritewidth);
 		if (di.transform_y > 0 && x >= 0 && x < el.w && di.transform_y <
 				el.pwd_arr[x])
 			draw_sprite_col(di, x, tex_x, el);
