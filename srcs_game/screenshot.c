@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:23:37 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/25 16:26:06 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/25 22:08:29 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	make_screenshot(t_game *el)
 	int				fd;
 	int				size;
 
-	size = el->w * el->h / 8 * el->bpp + 54;
+	size = el->w * el->h * (el->bpp / 8) + 54;
 	if (!(bmp = (unsigned char *)malloc(sizeof(char) * size)))
 		make_screenshot_malloc_error(el);
 	ft_bzero(bmp, size);
@@ -73,6 +73,13 @@ void		init_game_screenshot(char *f_path, t_game *el)
 
 	if ((error = parse_input(f_path, el)) < 1)
 		parse_inp_error(error);
+	if (el->w * el->h > 2147483647 / 8 || el->w * el->h < 0)
+	{
+		print_error("Error\nResolution for screenshot is too high\n");
+		map_free(el);
+		free_tex_paths(el);
+		exit(1);
+	}
 	el->mlx_ptr = mlx_init();
 	if (!el->mlx_ptr)
 		mlx_init_error(el);
