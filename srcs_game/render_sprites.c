@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:33:13 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/22 05:38:28 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/25 16:20:13 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,21 @@ static t_sprite_di	get_sprite_drawinfo(double sprite_x,
 static void			draw_sprite_col(t_sprite_di di, int x, int tex_x,
 		t_game el)
 {
-	int d;
-	int tex_y;
-	int y;
-	int color;
+	double	step;
+	double	texpos;
+	int		tex_y;
+	int		color;
 
-	y = di.drawstart_y;
-	while (y < di.drawend_y)
+	step = 1.0 * el.s_tex.height / di.spriteheight;
+	texpos = (di.drawstart_y - el.h / 2 + di.spriteheight / 2) * step;
+	while (di.drawstart_y < di.drawend_y)
 	{
-		d = y * 256 - el.h * 128 + di.spriteheight * 128;
-		tex_y = ((d * el.s_tex.height) / di.spriteheight) / 256;
+		tex_y = (int)texpos < el.s_tex.height ? (int)texpos : (int)texpos - 1;
+		texpos += step;
 		color = get_pixel_col(tex_x, tex_y, el.s_tex);
 		if (color != 0)
-			el.img_data[y * el.w + x] = color;
-		y++;
+			el.img_data[di.drawstart_y * el.w + x] = color;
+		di.drawstart_y++;
 	}
 }
 
@@ -79,7 +80,7 @@ static void			draw_sprite(t_sprite_di di, t_game el)
 	}
 }
 
-void				draw_sprites_new3(t_game el)
+void				draw_sprites(t_game el)
 {
 	int			i;
 	t_sprite_di di;

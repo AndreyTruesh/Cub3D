@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 21:16:04 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/22 21:47:40 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/25 16:21:16 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ int				get_pixel_col(int x, int y, t_tex tex);
 void			print_error(const char *s);
 void			mlx_get_data_addr_error(t_game *el);
 void			mlx_new_image_error(t_game *el);
-void			draw_sprites_new3(t_game el);
+void			draw_sprites(t_game el);
 int				map_is_empty(t_list *map_lines);
 int				list_malloc_error(t_list **map_lines, char *buf, int i,
 		t_game *el);
