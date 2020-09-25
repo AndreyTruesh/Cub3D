@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:23:37 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/22 05:24:21 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/25 16:26:06 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	render_image_ss(t_game *el)
 	if (el->sprite_count > 0)
 	{
 		sort_sprites(el);
-		draw_sprites_new3(*el);
+		draw_sprites(*el);
 	}
 }
 
