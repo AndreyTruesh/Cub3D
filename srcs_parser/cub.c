@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 17:18:00 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/24 21:30:09 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/26 16:20:12 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,14 @@ int		parse_input(char *f_path, t_game *el)
 	if (fd < 0)
 		return (-100);
 	if ((error = parse_inp(fd, el)) != 1)
+	{
+		close(fd);
 		return (error);
+	}
 	if (!check_fields(*el))
+	{
+		close(fd);
 		return (-9);
+	}
 	return (get_map(el, fd));
 }
