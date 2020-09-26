@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 17:42:53 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/22 18:06:40 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/26 20:23:32 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,25 +113,26 @@ int			get_map(t_game *el, int fd)
 	t_list *map_lines;
 
 	if (!map_to_list(&map_lines, el, fd))
-		return (-6);
+		return (get_map_err(fd, -6));
 	el->map.h = validate_last_empty_lines(map_lines);
 	if (el->map.h < 1 || el->map.w < 1)
 	{
 		lstclear(&map_lines);
 		free_tex_paths(el);
-		return (el->map.h);
+		return (get_map_err(fd, el->map.h));
 	}
 	if (!list_to_matrix(el, map_lines))
 	{
 		lstclear(&map_lines);
-		return (-6);
+		return (get_map_err(fd, -6));
 	}
 	lstclear(&map_lines);
 	if (validate_map(el->map) != 1)
 	{
 		free_tex_paths(el);
 		map_free(el);
-		return (-5);
+		return (get_map_err(fd, -5));
 	}
+	close(fd);
 	return (1);
 }

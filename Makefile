@@ -6,7 +6,7 @@
 #    By: abibi <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/22 00:31:18 by abibi             #+#    #+#              #
-#    Updated: 2020/09/26 14:30:52 by abibi            ###   ########.fr        #
+#    Updated: 2020/09/26 20:26:53 by abibi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ OBJS =	$(addprefix $(OBJS_DIR)/, $(SRCS_G:c=o)) \
 		$(addprefix $(OBJS_DIR)/, $(SRCS_P:c=o)) \
 		$(addprefix $(OBJS_DIR)/, $(SRCS_GNL:c=o))
 
-.PHONY: all, re, clean, fclean
+.PHONY: all, re, clean, fclean, bonus
 
 all: $(NAME)
 
@@ -63,6 +63,8 @@ fclean:
 	make -C minilibx-linux/ clean
 
 re: fclean all
+
+bonus: all
 
 norm:
 	norminette $(SRCS_G_DIR)/*.c

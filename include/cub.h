@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 21:16:04 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/26 16:13:33 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/26 20:26:18 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,5 +184,6 @@ void			tgame_init(t_game *el);
 int				id_num(char **id);
 int				check_fields(t_game el);
 void			init_game_screenshot(char *f_path, t_game *el);
+int				get_map_err(int fd, int error);
 
 #endif

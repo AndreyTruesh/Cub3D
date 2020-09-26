@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 17:34:23 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/22 17:42:36 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/26 20:25:21 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,10 @@ int		list_malloc_error(t_list **map_lines, char *buf, int i, t_game *el)
 	if (i == 1)
 		get_next_line(0, NULL, 1);
 	return (0);
+}
+
+int		get_map_err(int fd, int error)
+{
+	close(fd);
+	return (error);
 }
