@@ -6,7 +6,7 @@
 #    By: abibi <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/22 00:31:18 by abibi             #+#    #+#              #
-#    Updated: 2020/09/24 22:53:45 by abibi            ###   ########.fr        #
+#    Updated: 2020/09/26 14:30:52 by abibi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,3 +63,10 @@ fclean:
 	make -C minilibx-linux/ clean
 
 re: fclean all
+
+norm:
+	norminette $(SRCS_G_DIR)/*.c
+	norminette $(SRCS_P_DIR)/*.c
+	norminette $(SRCS_GNL_DIR)/*.c
+	norminette $(SRCS_GNL_DIR)/*.h
+	norminette ./include/*.h
