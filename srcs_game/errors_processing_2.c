@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:27:18 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/24 21:37:06 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/26 16:12:54 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ void	print_error(const char *s)
 		return ;
 }
 
-void	make_screenshot_write_error(t_game *el, unsigned char *bmp)
+void	make_screenshot_write_error(t_game *el, unsigned char *bmp, int fd)
 {
 	map_free(el);
 	free_textures(el);
 	sprites_free(el);
 	free(el->mlx_ptr);
 	free(bmp);
+	if (fd > 0)
+		close(fd);
 	print_error("Error\ncan not write screenshot\n");
 	exit(1);
 }

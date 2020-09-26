@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 05:23:37 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/25 22:08:29 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/26 16:12:11 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static void	make_screenshot(t_game *el)
 	ft_memcpy(&bmp[28], &el->bpp, 2);
 	ft_memcpy(&bmp[54], el->img_data, size - 54);
 	fd = open("screenshot.bmp", O_CREAT | O_WRONLY | O_TRUNC, 0644);
-	if ((fd = write(fd, bmp, size)) < 0)
-		make_screenshot_write_error(el, bmp);
+	if (fd < 0 || (size = write(fd, bmp, size)) < 0)
+		make_screenshot_write_error(el, bmp, fd);
 	free(bmp);
 	close(fd);
 }

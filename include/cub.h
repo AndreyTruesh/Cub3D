@@ -6,7 +6,7 @@
 /*   By: abibi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 21:16:04 by abibi             #+#    #+#             */
-/*   Updated: 2020/09/25 16:31:07 by abibi            ###   ########.fr       */
+/*   Updated: 2020/09/26 16:13:33 by abibi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,8 @@ int				parse_inp(int fd, t_game *el);
 void			map_free(t_game *el);
 int				get_map(t_game *el, int fd);
 void			make_screenshot_malloc_error(t_game *el);
-void			make_screenshot_write_error(t_game *el, unsigned char *bmp);
+void			make_screenshot_write_error(t_game *el, unsigned char *bmp,
+		int fd);
 void			sort_sprites(t_game *el);
 int				get_sprites(t_game *el);
 int				ft_isspace(char c);
